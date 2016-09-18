@@ -1,0 +1,22 @@
+Keyboard.txt
+
+Hur man klarar sig med enbart tangentbordet i Windows 10
+
+- Start från avstängd dator.
+- Starta Processing
+- Hämta ett projekt
+- Kör
+- Redigera koden
+- Spara projektet
+- Stäng av datorn
+
+ 1 Starta datorn
+ 2 Mellanslag Pinkod
+ 3 Win 2 (eller annan siffra) startar Processing
+ 4 Ctrl+O Sh+Tab Sh+Tab (Open)
+ 5 Navigera med Up Down Backspace Enter tills du har hittat projektet.
+ 6 Ctrl+R (Run) Kan ta en halv minut första gången. Vit cirkel.
+ 7 Ändra programkoden. Esc stänger fönstret men är onödigt.
+ 8 Upprepa 6 och 7 tills programmet fungerar.
+ 9 F4 Enter (sparar ändringarna)
+10 F4 Enter (stänger av datorn)

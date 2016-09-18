@@ -1,0 +1,21 @@
+Hur man gör en pull vid inloggning
+==================================
+
+Gör först en manuell pull så hämta.bat finns.
+Starta Schemaläggaren
+Skapa Aktivitet
+ Namn: Hämta
+Utlösare | Ny
+ Starta aktiviteten vid inloggning
+ OK
+Åtgärder | Ny
+ Välj Hämta.bat
+ OK
+Villkor
+ Strömkälla
+  Tag bort båda kryssen
+ OK
+Stäng Schemaläggaren
+Logga ut 
+Logga in
+Nu ska ett fönster komma upp.
