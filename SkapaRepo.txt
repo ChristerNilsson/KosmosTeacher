@@ -1,0 +1,14 @@
+SkapaRepo.txt
+=============
+
+1. Skapa ett repo på github
+2. Ställ dig på C: (eller annan katalog)
+3. Git Clone
+4. Add to ignore list (t ex *.class)
+5. Ändra i .ignore på i högsta katalogen.
+6. Add | Select All
+7. Commit
+8. Push
+
+Nu ska filerna finnas på Github.
+Ställ in om de ska vara privata eller public.

@@ -2,6 +2,15 @@ import random
 import time
 from Circle import Circle
 
+def mrange(*params):
+    res = []
+    if len(params)==3:
+        for i in range(params[0]):
+            for j in range(params[1]):
+                for k in range(params[2]):
+                    res.append([i,j,k])
+    return res
+
 class Game:
     def __init__(self,width,height):
         self.level = 1
@@ -28,13 +37,12 @@ class Game:
             n=4
         radius = width/(1+self.level)
         colors = []
-        for i in range(n):
-            r = (i+0.5)/n
-            for j in range(n):
-                g = (j+0.5)/n
-                for k in range(n):
-                    b = (k+0.5)/n
-                    colors.append(color(255*r,255*g,255*b,128))
+        #for i in range(n): for j in range(n): for k in range(n):
+        for i,j,k in mrange(n,n,n): 
+            r = 255*(i+0.5)/n
+            g = 255*(j+0.5)/n
+            b = 255*(k+0.5)/n
+            colors.append(color(r,g,b,128))
         for i in range(self.level):
             col = random.choice(colors)
             colors.remove(col)

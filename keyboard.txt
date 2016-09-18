@@ -20,3 +20,9 @@ Hur man klarar sig med enbart tangentbordet i Windows 10
  8 Upprepa 6 och 7 tills programmet fungerar.
  9 F4 Enter (sparar ändringarna)
 10 F4 Enter (stänger av datorn)
+
+###################################
+
+Processingspecifika keyboard shortcuts.
+
+Byta flik: Ctrl-Shift-Alt Left or Right
