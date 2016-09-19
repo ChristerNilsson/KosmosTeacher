@@ -9,9 +9,7 @@ class Area:
         self.h=h
 
     def coords(self):
-        fill(BACKGR)
-        noStroke()
-        rect(self.x,self.y,self.w,self.h)
+        self.clear()
         stroke(255)
         strokeWeight(1)
         with pushMatrix():

@@ -1,4 +1,5 @@
 import sys
+import time
 from Area import Area,BACKGR
     
 EXT = ".png"
@@ -6,17 +7,10 @@ WIDTH = 200
 HEIGHT = 180
 GAP = 3
 
-# def bg(*params):
-#     if len(params)==0:
-#         pass
-#     elif len(params)==1:
-#         background(255*params[0])
-#     elif len(params)==2:
-#         background(255*params[0], 255*params[0], 255*params[0], 255*params[1])
-#     elif len(params)==3:
-#         background(255*params[0], 255*params[1], 255*params[2])
-#     elif len(params)==4:
-#         background(255*params[0], 255*params[1], 255*params[2], 255*params[3])
+def bg(*params):
+    noStroke()
+    fc(*params)
+    rect(0,0,WIDTH+1,HEIGHT+1)
 
 def rd(degrees):
     rotate(radians(degrees))
@@ -42,7 +36,7 @@ def sc(*params):
     elif len(params)==1:
         stroke(255*params[0])
     elif len(params)==2:
-        stroke(255*params[0], 255*params[0], 255*params[0], 255*params[1])
+        stroke(255*params[0],255*params[0],255*params[0],255*params[1])
     elif len(params)==3:
         stroke(255*params[0],255*params[1],255*params[2])
     elif len(params)==4:
@@ -56,13 +50,15 @@ class Assert:
     def __init__(self):
         self.images = {}
         self.result = {}
-        self.area1 = Area(GAP,GAP,                       WIDTH,HEIGHT)
-        self.area2 = Area(GAP,GAP+HEIGHT+GAP,            WIDTH,HEIGHT)
-        self.area3 = Area(GAP,GAP+HEIGHT+GAP+HEIGHT+GAP, WIDTH,HEIGHT)
+        self.area1 = Area(GAP,GAP,                           WIDTH,HEIGHT)
+        self.area2 = Area(GAP,GAP+HEIGHT+1+GAP,              WIDTH,HEIGHT)
+        self.area3 = Area(GAP,GAP+HEIGHT+1+GAP+HEIGHT+1+GAP, WIDTH,HEIGHT)
         self.count = 0
         self.showText = True
         self.img3 = None
         self.nr = 0
+        self.start = time.time()
+        self.stopp = time.time()
     
     def check(self,filename): # missing ext
         if self.count == 0:
@@ -77,7 +73,7 @@ class Assert:
                 fill(BACKGR)
                 strokeWeight(1)
                 stroke(0)
-                rect(a.x,a.y,a.w,a.h)
+                rect(a.x,a.y,a.w+1,a.h+1)
             else: 
                 self.images[filename] = img
                 image(img, a.x, a.y)
@@ -90,10 +86,11 @@ class Assert:
             textSize(16)
             strokeWeight(1)
             fill(255)
-            text(str(self.nr) + " " + self.filename,WIDTH/2,505+4)
-
-            if GAP < mouseX < WIDTH+GAP and (mouseY-GAP) % (HEIGHT+GAP) < HEIGHT :
-                s = "x,y = "+str(mouseX-GAP) + ","+str((mouseY-GAP)% (HEIGHT+GAP)) 
+            text(self.filename, WIDTH/2, 505+4)
+            
+            mghg = (mouseY-GAP) % (HEIGHT+1+GAP)
+            if 0 <= mouseX-GAP <= WIDTH and mghg <= HEIGHT :
+                s = "x,y = "+str(mouseX-GAP) + ","+str(mghg) 
                 text(s,GAP+WIDTH/2,525+4)
         
             if self.count==0: fill(0,128,0)
@@ -111,6 +108,8 @@ class Assert:
             self.nr += 1
             count = self.compare()
             self.result[self.filename] = count==0
+            self.stopp = time.time()
+            print(str(self.nr) + " " + self.filename + " " + str(round(self.stopp-self.start))+"s")
         resetMatrix()
         rectMode(CORNER)
         textAlign(LEFT,BOTTOM)
@@ -133,12 +132,15 @@ class Assert:
             for j in range(HEIGHT+1):
                 r1,g1,b1 = self.split(img1.get(i,j))
                 r2,g2,b2 = self.split(img2.get(i,j))
-                r,g,b = r1^r2, g1^g2, b1^b2
+                
+                #r,g,b = r1^r2, g1^g2, b1^b2
+                r,g,b = abs(r1-r2), abs(g1-g2), abs(b1-b2)
+                
                 c = color(r,g,b)
                 self.img3.set(i,j,c) 
                 if r+g+b > 0: # [1,2,3]: # or r+g+b>=3*254: 
                     self.count += 1
-                    if self.count < 10: print r,g,b
+                    if self.count < 10: print i,j,":",r,g,b
         self.area3.myset(self.img3)        
         if self.count > 0: 
             self.filename2 = self.filename
@@ -153,7 +155,7 @@ class Assert:
     
     def keyPressed(self):
         if key == "!": 
-            self.area1.save(self.filename + EXT)!
+            self.area1.save(self.filename + EXT)
 
     def mousePressed(self):
         self.showText = not self.showText            

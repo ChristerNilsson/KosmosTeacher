@@ -101,14 +101,22 @@ def draw():
         
     with ass.check("dices"):
         if ass.errors(): return
-
+            
     with ass.check("manyDices"):
         if ass.errors(): return
-
+                
+    with ass.check("skislope"):
+        if ass.errors(): return
+            
+    with ass.check("sunshine"):
+        if ass.errors(): return
+            
+    with ass.check("recursiveCircles"):
+        if ass.errors(): return
 
 ########################################################
-from Assert import Assert,fc,sc,sw,rd,circle           #
-def setup(): size(207,553); global ass; ass = Assert() #
+from Assert import Assert,fc,sc,sw,rd,circle,bg        #
+def setup(): size(207,555); global ass; ass = Assert() #
 def keyPressed(): ass.keyPressed()                     #
 def mousePressed(): ass.mousePressed()                 #
 ########################################################    
