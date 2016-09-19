@@ -1,5 +1,4 @@
 import sys
-import time
 from Area import Area,BACKGR
     
 EXT = ".png"
@@ -57,8 +56,6 @@ class Assert:
         self.showText = True
         self.img3 = None
         self.nr = 0
-        self.start = time.time()
-        self.stopp = time.time()
     
     def check(self,filename): # missing ext
         if self.count == 0:
@@ -108,8 +105,7 @@ class Assert:
             self.nr += 1
             count = self.compare()
             self.result[self.filename] = count==0
-            self.stopp = time.time()
-            print(str(self.nr) + " " + self.filename + " " + str(round(self.stopp-self.start))+"s")
+            print(str(self.nr) + " " + self.filename + " " + str(millis())+" ms")
         resetMatrix()
         rectMode(CORNER)
         textAlign(LEFT,BOTTOM)
@@ -134,11 +130,11 @@ class Assert:
                 r2,g2,b2 = self.split(img2.get(i,j))
                 
                 #r,g,b = r1^r2, g1^g2, b1^b2
-                r,g,b = abs(r1-r2), abs(g1-g2), abs(b1-b2)
+                r,g,b = abs(r1-r2), abs(g1-g2), abs(b1-b2) # somewhat nicer diff
                 
                 c = color(r,g,b)
                 self.img3.set(i,j,c) 
-                if r+g+b > 0: # [1,2,3]: # or r+g+b>=3*254: 
+                if r+g+b > 4: # t ex YellowQuad:(2,2,0)
                     self.count += 1
                     if self.count < 10: print i,j,":",r,g,b
         self.area3.myset(self.img3)        

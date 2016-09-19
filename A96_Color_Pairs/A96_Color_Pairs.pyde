@@ -1,7 +1,7 @@
 from Game import Game
 
 def setup():
-    size(1900,1040)
+    size(1580,860)
     level = 1
     global game
     game = Game(width,height)
