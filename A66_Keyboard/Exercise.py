@@ -1,6 +1,6 @@
 from random import sample
 
-KEYS = "[]{}()<>,.'#%=+-*/:" + '"'
+KEYS = "[]{}()<>,.'#%=+-*/:" + '"' + BACKSPACE + TAB + ENTER 
 
 class Exercise:
     def __init__(self):
@@ -10,11 +10,17 @@ class Exercise:
         self.errors = ""
         self.start = 0
 
+    def pretty(self,ch):
+        if ch==BACKSPACE: return " BACKSPACE"
+        if ch==TAB: return " TAB"
+        if ch==ENTER: return " ENTER"
+        return " " + ch        
+
     def draw(self):
         background(204)
         if self.message=="":
-            textSize(150)
-            text(self.keys[self.index],width/2,height/2)
+            textSize(60)
+            text(self.pretty(self.keys[self.index]),width/2,height/2)
         else:
             textSize(20)
             text(self.message,width/2,height/2)
@@ -35,4 +41,4 @@ class Exercise:
                 else:
                     self.message = "You missed " + self.errors + " in " + str(millis()-self.start) + " ms"
         else:
-            self.errors += self.keys[self.index]
+            self.errors += self.pretty(self.keys[self.index])
