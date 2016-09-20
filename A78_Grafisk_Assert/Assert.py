@@ -56,7 +56,7 @@ class Assert:
         self.showText = True
         self.img3 = None
         self.nr = 0
-    
+
     def check(self,filename): # missing ext
         if self.count == 0:
             background(255)

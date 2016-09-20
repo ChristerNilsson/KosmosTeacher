@@ -202,6 +202,8 @@ def draw():                                            #
         rect(60,60, 80,80)
         rect(80,80, 40,40)
         
+    # Termin 2        
+        
     with ass.check("chessRow"):
         if ass.errors(): return
         for i in range(8):
