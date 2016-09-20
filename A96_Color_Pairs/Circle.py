@@ -21,7 +21,7 @@ class Circle:
         ellipse(self.x,self.y,1.95*self.radius,1.95*self.radius)
 
         noFill()
-        stroke(255,255,255,128)
+        stroke(255,255,255,225)
         strokeWeight(0.05*self.radius)
         ellipse(self.x,self.y,2*self.radius,2*self.radius)
 
