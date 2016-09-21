@@ -1,12 +1,13 @@
 from random import sample
 
-KEYS = "[]{}()<>,.'#%=+-*/:" + '"' + BACKSPACE + TAB + ENTER 
+ORIGKEYS = "aA iI lL oO 01 ,.'" + '"' + ":;[]{}()<>#%=+-*/" + BACKSPACE + TAB + ENTER 
 
 class Exercise:
     def __init__(self):
-        self.keys = KEYS
+        self.keys = ORIGKEYS[:]
+        self.keys = self.keys.replace(" ","")
         self.index = 0
-        self.message = "Press space!"
+        self.message = str(len(self.keys)) + " keys. Press space."
         self.errors = ""
         self.start = 0
 
@@ -19,8 +20,10 @@ class Exercise:
     def draw(self):
         background(204)
         if self.message=="":
-            textSize(60)
-            text(self.pretty(self.keys[self.index]),width/2,height/2)
+            textSize(32)
+            text(ORIGKEYS[0:18],width/2,height/4)
+            text(ORIGKEYS[18:36],width/2,height/3)
+            text("Key:" + self.pretty(self.keys[self.index]),width/2,height/2)
         else:
             textSize(20)
             text(self.message,width/2,height/2)
@@ -39,6 +42,6 @@ class Exercise:
                 if self.errors == "":
                     self.message = "You made no mistakes in " + str(millis()-self.start) + " ms"
                 else:
-                    self.message = "You missed " + self.errors + " in " + str(millis()-self.start) + " ms"
+                    self.message = "You missed" + self.errors + " in " + str(millis()-self.start) + " ms"
         else:
             self.errors += self.pretty(self.keys[self.index])
