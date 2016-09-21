@@ -21,8 +21,8 @@ class Area:
         image = get(self.x,self.y,self.w+1,self.h+1) 
         image.save("data\\" + filename)
         
-    def clear(self):
-        fill(BACKGR)
+    def clear(self,col=BACKGR):
+        fill(col)
         noStroke()
         rect(self.x,self.y,self.w,self.h)
     

@@ -2,14 +2,34 @@
 def draw():                                            #
 ########################################################
     
-    with ass.check("whitePoint"): 
+    with ass.check("whiteBackground"): 
+        if ass.errors(): return
+        bg(1)
+        
+    with ass.check("grayBackground"): 
+        if ass.errors(): return
+        bg(0.5)
+        
+    with ass.check("redBackground"): 
+        if ass.errors(): return
+        bg(1,0,0)
+        
+    with ass.check("greenBackground"): 
+        if ass.errors(): return
+        bg(0,1,0)
+        
+    with ass.check("yellowBackground"): 
+        if ass.errors(): return
+        bg(1,1,0)
+        
+    with ass.check("point"): 
         if ass.errors(): return
         point(10,30)
 
     with ass.check("redPoint"): 
         if ass.errors(): return
         sc(1,0,0)
-        point(10,10)
+        point(20,40)
 
     with ass.check("greenPoint"): 
         if ass.errors(): return
@@ -30,19 +50,19 @@ def draw():                                            #
     with ass.check("yellowLine"): 
         if ass.errors(): return
         sc(1,1,0)
-        line(20,20, 160,160)
+        line(20,30, 140,160)
 
     with ass.check("whiteCircle"): 
         if ass.errors(): return
         fc(1)
-        circle(60,60,30)
+        circle(60,80,30)
 
     with ass.check("whiteEmptyCircle"): 
         if ass.errors(): return
         sc(1)
         fc()
         sw(2)
-        circle(60,60,30)
+        circle(70,90,40)
         
     with ass.check("greenEllipse"): 
         if ass.errors(): return
@@ -52,34 +72,59 @@ def draw():                                            #
     with ass.check("greenRect"): 
         if ass.errors(): return
         fc(0,1,0)
-        rect(60,60, 40,40) 
+        rect(60,80, 40,50) 
 
     with ass.check("redRect"):
         if ass.errors(): return
         fc(1,0,0)
-        rect(80,80, 40,40)
+        rect(80,70, 40,100)
 
     with ass.check("whiteTriangle"):
         if ass.errors(): return
         fc(1)
-        triangle(30,30, 150,110, 100,140)
+        triangle(20,40, 160,100, 100,140)
         
     with ass.check("yellowQuad"):
         if ass.errors(): return
         fc(1,1,0)
-        quad(150,110, 180,20, 30,30, 100,140)
+        quad(150,100, 180,20, 40,20, 100,140)
         
     with ass.check("rotatedRectA"):
         if ass.errors(): return
-        rect(100,100, 40,40)
+        fc(1,0,0)
+        rect(60,100, 40,40)
+        fc(0,1,0)
+        rect(140,100, 40,40)
         
     with ass.check("rotatedRectB"):
         if ass.errors(): return
-        rectMode(CENTER)
-        translate(100,100)
-        rd(45)
-        rect(0,0, 40,40)
+        with pushMatrix():
+            fc(1,0,0)
+            translate(60,100)
+            rd(45)
+            rect(0,0, 40,40)
+        
+        with pushMatrix():
+            fc(0,1,0)
+            translate(140,100)
+            rd(45)
+            rect(0,0, 40,40)
     
+    with ass.check("rotatedRectC"):
+        if ass.errors(): return
+        rectMode(CENTER)
+        with pushMatrix():
+            fc(1,0,0)
+            translate(80,120)
+            rd(45)
+            rect(0,0, 40,40)
+        
+        with pushMatrix():
+            fc(0,1,0)
+            translate(160,120)
+            rd(45)
+            rect(0,0, 40,40)
+            
     with ass.check("rotatedEllipse"):
         if ass.errors(): return
         fc(1,0,0)
@@ -91,58 +136,58 @@ def draw():                                            #
     with ass.check("twoDiscsA"):
         if ass.errors(): return
         fc(1,0,0)
-        circle(80,80,50)
+        circle(80,100,40)
         fc(0,1,0)
-        circle(120,120,50)
+        circle(100,120,50)
 
     with ass.check("twoDiscsB"):
         if ass.errors(): return
         fc(0,1,0)
-        circle(120,120,50)
+        circle(140,120,60)
         fc(1,0,0)
-        circle(80,80,50)
+        circle(60,80,50)
         
     with ass.check("twoDiscsC"):
         if ass.errors(): return
         fc(1,0,0)
-        circle(80,80,50)
+        circle(80,100,40)
         fc(0,1,0, 0.5)
-        circle(120,120,50)
+        circle(120,100,50)
         
     with ass.check("twoDiscsD"):
         if ass.errors(): return
         fc(1,0,0, 0.5)
-        circle(80,80,50)
+        circle(80,90,60)
         fc(0,1,0)
-        circle(120,120,50)
+        circle(110,120,50)
 
     with ass.check("twoDiscsE"):
         if ass.errors(): return
         fc(1,0,0, 0.5)
-        circle(80,80,50)
+        circle(70,90,50)
         fc(0,1,0, 0.5)
-        circle(120,120,50)
+        circle(100,130,70)
 
     with ass.check("twoDiscsF"):
         if ass.errors(): return
         fc(0,1,0, 0.5)
-        circle(120,120,50)
+        circle(120,140,40)
         fc(1,0,0)
-        circle(80,80,50)
+        circle(80,70,50)
         
     with ass.check("twoDiscsG"):
         if ass.errors(): return
         fc(0,1,0)
-        circle(120,120,50)
+        circle(110,120,40)
         fc(1,0,0, 0.5)
-        circle(80,80,50)
+        circle(80,100,60)
 
     with ass.check("twoDiscsH"):
         if ass.errors(): return
         fc(0,1,0, 0.5)
-        circle(120,120,50)
+        circle(120,100,40)
         fc(1,0,0, 0.5)
-        circle(80,80,50)
+        circle(80,90,60)
 
     with ass.check("cross"):
         if ass.errors(): return
@@ -275,7 +320,7 @@ def draw():                                            #
         if ass.errors(): return
         fc(0)
         for i in range(10):
-            for j in range(9):
+            for j in range(10):
                 dice(20*i,20*j,1+(i+j)%6)
                 
     with ass.check("skislope"):
@@ -289,11 +334,11 @@ def draw():                                            #
     with ass.check("sunshine"):
         if ass.errors(): return
         bg(0)
-        sc(1,0,0)
+        sc(1,1,0)
         for x in range(0,220,20):
-            line(x,0,200-x,180)
-        for y in range(0,200,20):
-            line(0,y,200,180-y)
+            line(x,0,200-x,200)
+        for y in range(0,220,20):
+            line(0,y,200,200-y)
 
     def urtavla():
         fc(0)
@@ -301,7 +346,7 @@ def draw():                                            #
         circle(0,0,90)
         fc(1)
         for i in range(60):
-            if i%5==0: circle(85,0,1)
+            if i%5==0: circle(85,0,2)
             else:      point(85,0)
             rd(6)
             
@@ -314,11 +359,11 @@ def draw():                                            #
 
     def klocka(h,m,s):
         rectMode(CENTER)            
-        translate(100,90)
+        translate(100,100)
         urtavla()
         visare((h+m/60.0)*30, 7, 60, 1,0,0)
-        visare((m+s/60.0)*6,  5, 85, 0,1,0)
-        visare(s*6,           3, 85, 0,0,1)
+        visare((m+s/60.0)*6,  5, 80, 0,1,0)
+        visare(s*6,           2, 80, 0,0,1)
     
     with ass.check("klocka"):
         if ass.errors(): return
@@ -337,12 +382,12 @@ def draw():                                            #
     with ass.check("recursiveCircles"):
         if ass.errors(): return
         sc(1)
-        circles(100,90,90)                            
+        circles(100,100,100)                            
 
 ########################################################
 from Assert import Assert,fc,sc,sw,rd,circle,bg        #
 def setup():                                           #
-    size(207,555)                                      #
+    size(207,4*180-40)                                 #
     global ass                                         #
     ass = Assert()                                     #
 def keyPressed(): ass.keyPressed()                     #

@@ -1,6 +1,23 @@
-def draw():
+########################################################
+def draw():                                            #
+########################################################
     
-    with ass.check("whitePoint"): 
+    with ass.check("whiteBackground"): 
+        if ass.errors(): return
+        
+    with ass.check("grayBackground"): 
+        if ass.errors(): return
+        
+    with ass.check("redBackground"): 
+        if ass.errors(): return
+        
+    with ass.check("greenBackground"): 
+        if ass.errors(): return
+        
+    with ass.check("yellowBackground"): 
+        if ass.errors(): return
+        
+    with ass.check("point"): 
         if ass.errors(): return
 
     with ass.check("redPoint"): 
@@ -45,6 +62,9 @@ def draw():
     with ass.check("rotatedRectB"):
         if ass.errors(): return
     
+    with ass.check("rotatedRectC"):
+        if ass.errors(): return
+            
     with ass.check("rotatedEllipse"):
         if ass.errors(): return
 
@@ -93,6 +113,8 @@ def draw():
     with ass.check("squareHole"):
         if ass.errors(): return
         
+    # Termin 2        
+        
     with ass.check("chessRow"):
         if ass.errors(): return
             
@@ -110,13 +132,24 @@ def draw():
             
     with ass.check("sunshine"):
         if ass.errors(): return
-            
+    
+    with ass.check("klocka"):
+        if ass.errors(): return
+        #klocka(10,9,30)
+        
+    with ass.check("klockaB"):
+        if ass.errors(): return
+        #klocka(11,30,15)
+        
     with ass.check("recursiveCircles"):
         if ass.errors(): return
 
 ########################################################
 from Assert import Assert,fc,sc,sw,rd,circle,bg        #
-def setup(): size(207,555); global ass; ass = Assert() #
+def setup():                                           #
+    size(207,4*180-40)                                 #
+    global ass                                         #
+    ass = Assert()                                     #
 def keyPressed(): ass.keyPressed()                     #
 def mousePressed(): ass.mousePressed()                 #
 ########################################################    
