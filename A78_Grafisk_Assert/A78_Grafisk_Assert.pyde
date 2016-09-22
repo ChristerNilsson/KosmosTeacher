@@ -327,18 +327,16 @@ def draw():                                            #
         if ass.errors(): return
         bg(0)
         sc(1,0,0)
-        line(0,0,200,0)
-        for i in range(0,190,10):
-            line(i+20,0,20+180,i)
+        for i in range(0,210,10):
+            line(i,0,200,i)
             
     with ass.check("sunshine"):
         if ass.errors(): return
         bg(0)
         sc(1,1,0)
-        for x in range(0,220,20):
-            line(x,0,200-x,200)
-        for y in range(0,220,20):
-            line(0,y,200,200-y)
+        for i in range(0,220,20):
+            line(i,0,200-i,200)
+            line(0,i,200,200-i)
 
     def urtavla():
         fc(0)
@@ -387,7 +385,7 @@ def draw():                                            #
 ########################################################
 from Assert import Assert,fc,sc,sw,rd,circle,bg        #
 def setup():                                           #
-    size(207,4*180-40)                                 #
+    size(207,680)                                      #
     global ass                                         #
     ass = Assert()                                     #
 def keyPressed(): ass.keyPressed()                     #
