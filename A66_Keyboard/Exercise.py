@@ -6,7 +6,7 @@ class Exercise:
     def __init__(self):
         self.keys = ORIGKEYS[:]
         self.keys = self.keys.replace(" ","")
-        self.index = 0
+        self.index = len(self.keys)
         self.message = str(len(self.keys)) + " keys. Press space."
         self.errors = ""
         self.start = 0
@@ -24,13 +24,14 @@ class Exercise:
             text(ORIGKEYS[0:18],width/2,height/4)
             text(ORIGKEYS[18:36],width/2,height/3)
             text("Key:" + self.pretty(self.keys[self.index]),width/2,height/2)
+            text(str(self.index) + " of " + str(len(self.keys)) + " keys",width/2,height - 40)
         else:
             textSize(20)
             text(self.message,width/2,height/2)
             
     def keyPressed(self):
         if key == 65535: return # AltGr, Shift    
-        if key == " ":
+        if key == " " and self.index == len(self.keys):
             self.message = ""
             self.keys = sample(self.keys,len(self.keys))
             self.index = 0
