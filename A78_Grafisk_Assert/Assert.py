@@ -6,6 +6,9 @@ WIDTH = 200
 HEIGHT = 200
 GAP = 3
 
+def push():
+    return pushMatrix()
+
 def bg(*params):
     noStroke()
     fc(*params)

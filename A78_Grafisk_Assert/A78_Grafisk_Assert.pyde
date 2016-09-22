@@ -89,50 +89,6 @@ def draw():                                            #
         fc(1,1,0)
         quad(150,100, 180,20, 40,20, 100,140)
         
-    with ass.check("rotatedRectA"):
-        if ass.errors(): return
-        fc(1,0,0)
-        rect(60,100, 40,40)
-        fc(0,1,0)
-        rect(140,100, 40,40)
-        
-    with ass.check("rotatedRectB"):
-        if ass.errors(): return
-        with pushMatrix():
-            fc(1,0,0)
-            translate(60,100)
-            rd(45)
-            rect(0,0, 40,40)
-        
-        with pushMatrix():
-            fc(0,1,0)
-            translate(140,100)
-            rd(45)
-            rect(0,0, 40,40)
-    
-    with ass.check("rotatedRectC"):
-        if ass.errors(): return
-        rectMode(CENTER)
-        with pushMatrix():
-            fc(1,0,0)
-            translate(80,120)
-            rd(45)
-            rect(0,0, 40,40)
-        
-        with pushMatrix():
-            fc(0,1,0)
-            translate(160,120)
-            rd(45)
-            rect(0,0, 40,40)
-            
-    with ass.check("rotatedEllipse"):
-        if ass.errors(): return
-        fc(1,0,0)
-        sc()
-        translate(100,100)
-        rd(45)
-        ellipse(0,0, 80,40)
-
     with ass.check("twoDiscsA"):
         if ass.errors(): return
         fc(1,0,0)
@@ -196,6 +152,50 @@ def draw():                                            #
         rect(85,70, 70,10)
         rect(115,40, 10,100)
                     
+    with ass.check("squareHole"):
+        if ass.errors(): return
+        fc(0,1,1)
+        sc()
+        rect(60,60, 80,20)
+        rect(60,120, 80,20)
+        rect(60,60, 20,80)
+        rect(120,60, 20,80)
+        sc(0)
+        fc()
+        sc(1,0,0)
+        sw(3)
+        rect(60,60, 80,80)
+        rect(80,80, 40,40)
+        
+    def colorCube(n,b):
+        bg(0)
+        d = 200.0/n
+        n1 = n-1.0
+        for r in range(n):
+            for g in range(n):
+                fc(r/n1,g/n1,b/n1)
+                rect(r*d,g*d,d,d)
+        
+    with ass.check("colorCube_2_0"):
+        if ass.errors(): return
+        colorCube(2,0)
+        
+    with ass.check("colorCube_2_1"):
+        if ass.errors(): return
+        colorCube(2,1)
+        
+    with ass.check("colorCube_3_0"):
+        if ass.errors(): return
+        colorCube(3,0)
+        
+    with ass.check("colorCube_3_1"):
+        if ass.errors(): return
+        colorCube(3,1)
+        
+    with ass.check("colorCube_3_2"):
+        if ass.errors(): return
+        colorCube(3,2)
+        
     with ass.check("textPythonA"):
         if ass.errors(): return
         fc(1,1,0)
@@ -227,25 +227,54 @@ def draw():                                            #
         rd(180)
         text("Python",0,0)
 
+    with ass.check("rotatedEllipse"):
+        if ass.errors(): return
+        fc(1,0,0)
+        sc()
+        translate(100,100)
+        rd(45)
+        ellipse(0,0, 80,40)
+
+    with ass.check("rotatedRectA"):
+        if ass.errors(): return
+        fc(1,0,0)
+        rect(60,100, 40,40)
+        fc(0,1,0)
+        rect(140,100, 40,40)
+        
+    with ass.check("rotatedRectB"):
+        if ass.errors(): return
+        with push():
+            fc(1,0,0)
+            translate(60,100)
+            rd(45)
+            rect(0,0, 40,40)
+        
+        with push():
+            fc(0,1,0)
+            translate(140,100)
+            rd(45)
+            rect(0,0, 40,40)
+    
+    with ass.check("rotatedRectC"):
+        if ass.errors(): return
+        rectMode(CENTER)
+        with push():
+            fc(1,0,0)
+            translate(80,120)
+            rd(45)
+            rect(0,0, 40,40)
+        
+        with push():
+            fc(0,1,0)
+            translate(160,120)
+            rd(45)
+            rect(0,0, 40,40)
+            
     with ass.check("pacMan"):
         if ass.errors(): return
         fc(1,1,0)
         arc(100,100, 80,80, radians(-135),radians(135), PIE)
-        
-    with ass.check("squareHole"):
-        if ass.errors(): return
-        fc(0,1,1)
-        sc()
-        rect(60,60, 80,20)
-        rect(60,120, 80,20)
-        rect(60,60, 20,80)
-        rect(120,60, 20,80)
-        sc(0)
-        fc()
-        sc(1,0,0)
-        sw(3)
-        rect(60,60, 80,80)
-        rect(80,80, 40,40)
         
     # Termin 2        
         
@@ -349,7 +378,7 @@ def draw():                                            #
             rd(6)
             
     def visare(v,w,l,r,g,b):
-        with pushMatrix():
+        with push():
             rd(v-90)
             translate(l/2,0)
             fc(r,g,b)
@@ -383,7 +412,7 @@ def draw():                                            #
         circles(100,100,100)                            
 
 ########################################################
-from Assert import Assert,fc,sc,sw,rd,circle,bg        #
+from Assert import Assert,fc,sc,sw,rd,circle,bg,push   #
 def setup():                                           #
     size(207,680)                                      #
     global ass                                         #

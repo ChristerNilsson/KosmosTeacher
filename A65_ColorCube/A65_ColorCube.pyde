@@ -15,16 +15,16 @@ def draw():
             fill(r*c,g*c,b*c)
             rect(r*d,g*d,d,d)
 
-    r = 255*int(mouseX/d)/(n-1)
-    g = 255*int(mouseY/d)/(n-1)
-    print n,":",r,g,int(b*c),'(',n*n*n,')'           
+    #r = 255*int(mouseX/d)/(n-1)
+    #g = 255*int(mouseY/d)/(n-1)
+    #print n,":",r,g,int(b*c),'(',n*n*n,')'           
             
 def keyPressed():
     global b,n
-    if keyCode==LEFT and n>2: n -= 1
-    if keyCode==RIGHT and n<256: n += 1
-    if keyCode==DOWN and b>0: b -= 1
-    if keyCode==UP and b<n-1: b += 1
-    if b<0:b=0
-    if b>=n-1:b=n-1
+    if keyCode==LEFT : n -= 1
+    if keyCode==RIGHT: n += 1
+    n = constrain(n,2,256)
+    if keyCode==DOWN : b -= 1
+    if keyCode==UP   : b += 1
+    b = constrain(b,0,n-1)
     
