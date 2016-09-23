@@ -108,6 +108,7 @@ class Assert:
             print(str(self.nr) + " " + self.filename + " " + str(millis())+" ms")
         resetMatrix()
         rectMode(CORNER)
+        colorMode(RGB,255,255,255,255)
         textAlign(LEFT,BOTTOM)
         
     def showText(self):

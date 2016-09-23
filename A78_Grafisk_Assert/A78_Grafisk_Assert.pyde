@@ -216,23 +216,28 @@ def draw():                                            #
                     
     with ass.check("korg_1"): 
         if ass.errors(): return
-        korg(1,5,col(1,0,0),col(1,1,0))
+        colorMode(RGB,1,1,1,1)
+        korg(1,5,color(1,0,0),color(1,1,0))
     
     with ass.check("korg_2"): 
         if ass.errors(): return
-        korg(2,4,col(0.5),col(1))
+        colorMode(RGB,1,1,1,1)
+        korg(2,4,color(0.5),color(1))
         
     with ass.check("korg_3"): 
         if ass.errors(): return
-        korg(3,3,col(1,1,0),col(1,0,0))
+        colorMode(RGB,1,1,1,1)
+        korg(3,3,color(1,1,0),color(1,0,0))
         
     with ass.check("korg_4"): 
         if ass.errors(): return
-        korg(4,2,col(1),col(0.5))
+        colorMode(RGB,1,1,1,1)
+        korg(4,2,color(1),color(0.5))
         
     with ass.check("korg_5"): 
         if ass.errors(): return
-        korg(5,1,col(1,0,0),col(1,1,0))
+        colorMode(RGB,1,1,1,1)
+        korg(5,1,color(1,0,0),color(1,1,0))
         
     with ass.check("textPythonA"):
         if ass.errors(): return
