@@ -20,6 +20,16 @@ def rd(degrees):
 def circle(x,y,r):
     ellipse(x,y,2*r,2*r)
 
+def col(*params):
+    if len(params)==1:
+        return color(255*params[0])
+    elif len(params)==2:
+        return color(255*params[0], 255*params[0], 255*params[0], 255*params[1])
+    elif len(params)==3:
+        return color(255*params[0], 255*params[1], 255*params[2])
+    elif len(params)==4:
+        return color(255*params[0], 255*params[1], 255*params[2], 255*params[3])
+        
 def fc(*params):
     if len(params)==0:
         noFill()

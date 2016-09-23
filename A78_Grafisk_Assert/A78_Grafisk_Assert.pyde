@@ -1,7 +1,7 @@
 ########################################################
 def draw():                                            #
 ########################################################
-    
+
     with ass.check("whiteBackground"): 
         if ass.errors(): return
         bg(1)
@@ -170,10 +170,10 @@ def draw():                                            #
     def colorCube(n,b):
         bg(0)
         d = 200.0/n
-        n1 = n-1.0
+        m = n-1.0
         for r in range(n):
             for g in range(n):
-                fc(r/n1,g/n1,b/n1)
+                fc(r/m,g/m,b/m)
                 rect(r*d,g*d,d,d)
         
     with ass.check("colorCube_2_0"):
@@ -195,6 +195,44 @@ def draw():                                            #
     with ass.check("colorCube_3_2"):
         if ass.errors(): return
         colorCube(3,2)
+        
+    def korg(n,w,c1,c2):
+        bg(0)
+        fill(c1)
+        stroke(c2)
+        sw(w)
+        q = 2*n+1
+        d = 200.0/q
+        for i in range(n): # hor
+            rect(d+i*2*d,0,d,q*d)
+        for j in range(n): # ver
+            rect(0,d+j*2*d,q*d,d)
+        for i in range(n): # chessbooard
+            for j in range(n):
+                if (i+j) % 2 == 1:
+                    rect(i*2*d,d+j*2*d,3*d,d)
+                else:
+                    rect(d+i*2*d,j*2*d,d,3*d)
+                    
+    with ass.check("korg_1"): 
+        if ass.errors(): return
+        korg(1,5,col(1,0,0),col(1,1,0))
+    
+    with ass.check("korg_2"): 
+        if ass.errors(): return
+        korg(2,4,col(0.5),col(1))
+        
+    with ass.check("korg_3"): 
+        if ass.errors(): return
+        korg(3,3,col(1,1,0),col(1,0,0))
+        
+    with ass.check("korg_4"): 
+        if ass.errors(): return
+        korg(4,2,col(1),col(0.5))
+        
+    with ass.check("korg_5"): 
+        if ass.errors(): return
+        korg(5,1,col(1,0,0),col(1,1,0))
         
     with ass.check("textPythonA"):
         if ass.errors(): return
@@ -411,12 +449,12 @@ def draw():                                            #
         sc(1)
         circles(100,100,100)                            
 
-########################################################
-from Assert import Assert,fc,sc,sw,rd,circle,bg,push   #
-def setup():                                           #
-    size(207,680)                                      #
-    global ass                                         #
-    ass = Assert()                                     #
-def keyPressed(): ass.keyPressed()                     #
-def mousePressed(): ass.mousePressed()                 #
-########################################################    
+##########################################################
+from Assert import Assert,fc,sc,sw,rd,circle,bg,push,col #
+def setup():                                             #
+    size(207,680)                                        #
+    global ass                                           #
+    ass = Assert()                                       #
+def keyPressed(): ass.keyPressed()                       #
+def mousePressed(): ass.mousePressed()                   #
+##########################################################    
