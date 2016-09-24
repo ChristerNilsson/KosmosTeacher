@@ -6,6 +6,9 @@ WIDTH = 200
 HEIGHT = 200
 GAP = 3
 
+def push():
+    return pushMatrix()
+
 def bg(*params):
     noStroke()
     fc(*params)
@@ -17,6 +20,16 @@ def rd(degrees):
 def circle(x,y,r):
     ellipse(x,y,2*r,2*r)
 
+def col(*params):
+    if len(params)==1:
+        return color(255*params[0])
+    elif len(params)==2:
+        return color(255*params[0], 255*params[0], 255*params[0], 255*params[1])
+    elif len(params)==3:
+        return color(255*params[0], 255*params[1], 255*params[2])
+    elif len(params)==4:
+        return color(255*params[0], 255*params[1], 255*params[2], 255*params[3])
+        
 def fc(*params):
     if len(params)==0:
         noFill()
@@ -95,6 +108,7 @@ class Assert:
             print(str(self.nr) + " " + self.filename + " " + str(millis())+" ms")
         resetMatrix()
         rectMode(CORNER)
+        colorMode(RGB,255,255,255,255)
         textAlign(LEFT,BOTTOM)
         
     def showText(self):
@@ -139,7 +153,7 @@ class Assert:
                 
                 c = color(r,g,b)
                 self.img3.set(i,j,c) 
-                if r+g+b > 4: # t ex YellowQuad:(2,2,0)
+                if r+g+b > 9: # t ex whiteTriangle i motsatt riktning
                     self.count += 1
                     if self.count < 10: print i,j,":",r,g,b
         self.area3.myset(self.img3)        

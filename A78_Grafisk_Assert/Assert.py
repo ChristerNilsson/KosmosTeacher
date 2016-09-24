@@ -153,7 +153,7 @@ class Assert:
                 
                 c = color(r,g,b)
                 self.img3.set(i,j,c) 
-                if r+g+b > 4: # t ex YellowQuad:(2,2,0)
+                if r+g+b > 9: # t ex whiteTriangle i motsatt riktning
                     self.count += 1
                     if self.count < 10: print i,j,":",r,g,b
         self.area3.myset(self.img3)        
