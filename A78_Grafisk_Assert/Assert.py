@@ -65,8 +65,8 @@ class Assert:
         self.area1 = Area(GAP,GAP,                  WIDTH,HEIGHT)
         self.area2 = Area(GAP,1*(GAP+HEIGHT+1)+GAP, WIDTH,HEIGHT)
         self.area3 = Area(GAP,2*(GAP+HEIGHT+1)+GAP, WIDTH,HEIGHT)
-        self.area4 = Area(GAP+WIDTH,2*(GAP+HEIGHT+1)+GAP, WIDTH,HEIGHT)
-        self.area5 = Area(GAP+WIDTH,1*(GAP+HEIGHT+1)+GAP, WIDTH,HEIGHT)
+        self.area4 = Area(GAP+WIDTH+GAP,2*(GAP+HEIGHT+1)+GAP, WIDTH,HEIGHT)
+        self.area5 = Area(GAP+WIDTH+GAP,1*(GAP+HEIGHT+1)+GAP, WIDTH,HEIGHT)
         self.count = 0
         self.mousex = 0
         self.mousey = 0
