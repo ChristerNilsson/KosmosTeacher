@@ -457,9 +457,10 @@ def draw():                                            #
 ##########################################################
 from Assert import Assert,fc,sc,sw,rd,circle,bg,push,col #
 def setup():                                             #
-    size(207,680)                                        #
+    size(407,616)                                        #
     global ass                                           #
     ass = Assert()                                       #
 def keyPressed(): ass.keyPressed()                       #
 def mousePressed(): ass.mousePressed()                   #
+def mouseMoved(): ass.mouseMoved()                       #
 ##########################################################    
