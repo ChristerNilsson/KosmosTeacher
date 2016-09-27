@@ -452,11 +452,44 @@ def draw():                                            #
     with ass.check("recursiveCircles"):
         if ass.errors(): return
         sc(1)
-        circles(100,100,100)                            
+        circles(100,100,100)
+        
+    def hypnoticA():
+        bg(0.5, 0, 0)
+        noStroke()
+        fc(1)
+        for i in range(100):
+            x = 100 + cos(i) * i
+            y = 100 + sin(i) * i
+            circle(x, y, 5)
+    
+    with ass.check("hypnoticA"):
+        if ass.errors(): return
+        hypnoticA()
+
+    def hypnoticB(t):
+        bg(0.5, 0, 0)
+        noStroke()
+        fc(1)
+        for i in range(100):
+            x = 100 + cos(i) * i
+            y = 100 + sin(i) * i
+            speed = i/10.0
+            r = map(sin(t*speed), -1, 1, 2, 5)
+            circle(x, y, r)
+    
+    with ass.check("hypnoticB_1"):
+        if ass.errors(): return
+        hypnoticB(1)
+        
+    with ass.check("hypnoticB_5"):
+        if ass.errors(): return
+        hypnoticB(5)
 
 ##########################################################
 from Assert import Assert,fc,sc,sw,rd,circle,bg,push,col #
 def setup():                                             #
+    #noSmooth()                                          #
     size(407,616)                                        #
     global ass                                           #
     ass = Assert()                                       #

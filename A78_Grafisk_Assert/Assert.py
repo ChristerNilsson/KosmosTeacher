@@ -138,7 +138,9 @@ class Assert:
         else:             fill(255,0,0)
         text(str(self.count) + " pixel errors",GAP+3*WIDTH/2,480)
         
-        pixel = self.img2.get(self.mousex-GAP, mghg)
+        #pixel = self.img2.get(self.mousex-GAP, mghg)
+        pixel = get(self.mousex, self.mousey)
+        
         r,g,b = self.split(pixel)
         self.showOneColor(color(255,0,0), r, 520)
         self.showOneColor(color(0,255,0), g, 540)
@@ -193,7 +195,7 @@ class Assert:
         n,m = 5,12
          
         x0,y0 = GAP,HEIGHT
-        x1,y1 = 100+GAP+WIDTH,100+HEIGHT
+        x1,y1 = 3*GAP+100+WIDTH,110+HEIGHT
         for dx in range(-m,m):
             x = mouseX+dx
             for dy in range(-m,m):
