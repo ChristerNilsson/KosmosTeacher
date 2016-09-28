@@ -167,6 +167,55 @@ def draw():                                            #
         rect(60,60, 80,80)
         rect(80,80, 40,40)
         
+    with ass.check("chessRow"):
+        if ass.errors(): return
+        for i in range(8):
+            if i%2==0:
+                fc(1)
+            else:
+                fc(0.5)
+            rect(20+20*i,20, 20,20)
+            
+    with ass.check("chessBoard"):
+        if ass.errors(): return
+        for i in range(1,9):
+            for j in range(1,9):
+                if (i+j)%2 == 0:
+                    fc(1)
+                else:
+                    fc(0.5)
+                rect(20*i,20*j, 20,20)
+        
+    with ass.check("dices"):
+        if ass.errors(): return
+        fc(0)
+        point(10,10)
+        
+        point(28,8)
+        point(32,12)
+
+        point(48,8)
+        point(50,10)
+        point(52,12)
+
+        point(68,8)
+        point(68,12)
+        point(72,8)
+        point(72,12)
+
+        point(88,8)
+        point(88,12)
+        point(90,10)
+        point(92,8)
+        point(92,12)
+
+        point(108,8)
+        point(108,10)
+        point(108,12)
+        point(112,8)
+        point(112,10)
+        point(112,12)
+
     def colorCube(n,b):
         bg(0)
         d = 200.0/n
@@ -321,55 +370,6 @@ def draw():                                            #
         
     # Termin 2        
         
-    with ass.check("chessRow"):
-        if ass.errors(): return
-        for i in range(8):
-            if i%2==0:
-                fc(1)
-            else:
-                fc(0.5)
-            rect(20+20*i,20, 20,20)
-            
-    with ass.check("chessBoard"):
-        if ass.errors(): return
-        for i in range(1,9):
-            for j in range(1,9):
-                if (i+j)%2 == 0:
-                    fc(1)
-                else:
-                    fc(0.5)
-                rect(20*i,20*j, 20,20)
-        
-    with ass.check("dices"):
-        if ass.errors(): return
-        fc(0)
-        point(10,10)
-        
-        point(28,8)
-        point(32,12)
-
-        point(48,8)
-        point(50,10)
-        point(52,12)
-
-        point(68,8)
-        point(68,12)
-        point(72,8)
-        point(72,12)
-
-        point(88,8)
-        point(88,12)
-        point(90,10)
-        point(92,8)
-        point(92,12)
-
-        point(108,8)
-        point(108,10)
-        point(108,12)
-        point(112,8)
-        point(112,10)
-        point(112,12)
-
     def dots(x,y,dots):
         for dot in dots:
             if dot==1: point(x+8,y+8)
