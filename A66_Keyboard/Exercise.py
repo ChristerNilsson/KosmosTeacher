@@ -31,7 +31,7 @@ class Exercise:
             
     def keyPressed(self):
         if key == 65535: return # AltGr, Shift    
-        if key == " " and self.index == len(self.keys):
+        if self.index == len(self.keys):
             self.message = ""
             self.keys = sample(self.keys,len(self.keys))
             self.index = 0
