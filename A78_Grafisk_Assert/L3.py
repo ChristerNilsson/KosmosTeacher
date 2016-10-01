@@ -16,7 +16,7 @@ def lektion3(ass):
     with ass.check("yellowLine"): 
         if ass.errors(): return
         sc(1,1,0)
-        line(20,30, 140,160)
+        line(20,0, 200,20)
 
     with ass.check("skislope"):
         if ass.errors(): return

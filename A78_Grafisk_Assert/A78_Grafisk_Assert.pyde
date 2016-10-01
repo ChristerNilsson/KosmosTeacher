@@ -20,9 +20,9 @@ from LZ import lektionZ
         
 def draw():
     
-    lektion1(ass)
+    #lektion1(ass)
     #lektion2(ass)
-    #lektion3(ass)
+    lektion3(ass)
     #lektion4(ass)
     #lektion5(ass)
     #lektion6(ass)
