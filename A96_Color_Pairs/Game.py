@@ -22,7 +22,7 @@ class Game:
 
     def init(self,dlevel):
         self.level += dlevel
-        self.level=constrain(self.level,1,20)
+        self.level=constrain(self.level,1,64)
         self.circles = []
         self.marked = None # Marked Circle
         
@@ -35,7 +35,7 @@ class Game:
             n=3
         else:
             n=4
-        radius = width/(1+self.level)
+        radius = width/(2+self.level)
         colors = []
         #for i in range(n): for j in range(n): for k in range(n):
         for i,j,k in mrange(n,n,n): 
