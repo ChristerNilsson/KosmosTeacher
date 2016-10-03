@@ -22,13 +22,13 @@ def lektion3(ass):
         if ass.errors(): return
         bg(0)
         sc(1,0,0)
-        for i in range(0,210,10):
-            line(i,0,200,i)
+        for i in range(21):
+            line(i*10,0,200,i*10)
             
     with ass.check("sunshine"):
         if ass.errors(): return
         bg(0)
         sc(1,1,0)
-        for i in range(0,220,20):
-            line(i,0,200-i,200)
-            line(0,i,200,200-i)
+        for i in range(10):
+            line(i*20,0,200-i*20,200)
+            line(0,20+i*20,200,180-i*20)
