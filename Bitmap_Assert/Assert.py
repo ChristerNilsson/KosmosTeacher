@@ -132,7 +132,7 @@ class Assert:
         mghg = (self.mousey-GAP) % (HEIGHT+1+GAP)
         if 0 <= self.mousex-GAP <= WIDTH and mghg <= HEIGHT and self.mousey<3*180+4*GAP:
             s = "x,y = "+str(self.mousex-GAP) + ","+str(mghg) 
-            text(s,GAP+3*WIDTH/2,460)
+            #text(s,GAP+3*WIDTH/2,460)
             
         if self.count==0: fill(0,128,0)
         else:             fill(255,0,0)
