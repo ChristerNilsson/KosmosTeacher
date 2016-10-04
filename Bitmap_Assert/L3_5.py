@@ -75,4 +75,14 @@ def lektion3_5(ass):
                     fc(i/9.0,j/9.0,0)
                     rect(0,0, 10,10)
                 
-                        
+    with ass.check("for12"): 
+        if ass.errors(): return
+        rectMode(CENTER)
+        sc(1)
+        translate(100,100)
+        for i in range(18,-1,-1):
+            fc(1.0*i/18,0,0)
+            rect(0,0,70+5*i,70+5*i)
+            rd(5)
+        
+                                                
