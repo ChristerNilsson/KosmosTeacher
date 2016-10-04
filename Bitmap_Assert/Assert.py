@@ -200,6 +200,7 @@ class Assert:
             x = mouseX+dx
             for dy in range(-m,m):
                 y = mouseY+dy
+                if x + width*y >= len(pixels): return
                 pixel = pixels[x + width*y]
                 for i in range(n):
                     xi = x1+n*dx+i-2
