@@ -48,15 +48,15 @@ def lektionZ(ass):
         
     def korg(n,w,c1,c2):
         bg(0)
+        sw(w)
         fill(c1)
         stroke(c2)
-        sw(w)
         q = 2*n+1
         d = 200.0/q
         for i in range(n): # hor
-            rect(d+i*2*d,0,d,q*d)
+            rect(d+i*2*d,0,d,200) 
         for j in range(n): # ver
-            rect(0,d+j*2*d,q*d,d)
+            rect(0,d+j*2*d,200,d) 
         for i in range(n): # chessbooard
             for j in range(n):
                 if (i+j) % 2 == 1:
