@@ -10,12 +10,12 @@ assert dist(0,0,0,5) == 5
 assert dist(1,0,1,5) == 5
 assert dist(0,0,3,4) == 5
 
-###################
+#===================================
 
 def L3():
-    circles = []
-    circles.append([100,100,50])
-    circles.append([150,150,50])
+    circles = []                 ###
+    circles.append([100,100,50]) ###
+    circles.append([150,150,50]) ###
     
     def g(xm,ym,circles):
         res = []
