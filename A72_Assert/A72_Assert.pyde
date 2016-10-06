@@ -3,6 +3,6 @@ from L2 import L2
 from L3 import L3
 from L4 import L4
 
-L4()
+L2()
 
 print "Klart!"

@@ -10,6 +10,7 @@ assert 7 % 3 == 1
 assert 8 % 3 == 2
 
 ###################
+
 def L1():
 
     def f(x): return 00 # Byt 00 mot det korrekta! 

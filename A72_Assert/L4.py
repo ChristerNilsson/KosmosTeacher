@@ -16,7 +16,7 @@ assert "0707496800".replace("0","*") == "*7*74968**"
 
 ###################
 
-def L2():
+def L4():
     def f(s): 
         # Rensa bort allt utom sifforna
         if s.startswith("+46"): s = s.replace("+46","0")

@@ -1,8 +1,8 @@
-# linjära samband
+# y = kx+m
 
 ###################
 
-def L4():
+def L2():
 
     def d(x): return 1
     assert d(0) == 1 
@@ -48,3 +48,17 @@ def L4():
     assert l(1) == 22
     assert l(2) == 33
     
+    def m(x): return x/2.0
+    assert m(0) == 0
+    assert m(1) == 0.5
+    assert m(2) == 1
+    
+    def n(x): return 200 - 100*x
+    assert n(0) == 200
+    assert n(1) == 100
+    assert n(2) == 0
+
+    def o(x): return 200 - 20*x
+    assert o(0) == 200
+    assert o(1) == 180
+    assert o(2) == 160
