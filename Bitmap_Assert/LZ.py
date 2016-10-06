@@ -17,7 +17,7 @@ def lektionZ(ass):
                 fc((i+j)%2)
                 rect(20*i,20*j, 20,20)
         
-    def colorCube(n,b):
+    def xxcolorCube(n,b):
         bg(0)
         d = 200.0/n
         m = n-1.0
@@ -28,23 +28,23 @@ def lektionZ(ass):
         
     with ass.check("colorCube_2_0"):
         if ass.errors(): return
-        colorCube(2,0)
+        colorCube(2,0) ###
         
     with ass.check("colorCube_2_1"):
         if ass.errors(): return
-        colorCube(2,1)
+        colorCube(2,1) ###
         
     with ass.check("colorCube_3_0"):
         if ass.errors(): return
-        colorCube(3,0)
+        colorCube(3,0) ###
         
     with ass.check("colorCube_3_1"):
         if ass.errors(): return
-        colorCube(3,1)
+        colorCube(3,1) ###
         
     with ass.check("colorCube_3_2"):
         if ass.errors(): return
-        colorCube(3,2)
+        colorCube(3,2) ###
         
     def korg(n,w,c1,c2):
         bg(0)
@@ -66,28 +66,28 @@ def lektionZ(ass):
                     
     with ass.check("korg_1"): 
         if ass.errors(): return
-        colorMode(RGB,1,1,1,1)
-        korg(1,5,color(1,0,0),color(1,1,0))
+        colorMode(RGB,1,1,1,1) ###
+        korg(1,5,color(1,0,0),color(1,1,0)) ###
     
     with ass.check("korg_2"): 
         if ass.errors(): return
-        colorMode(RGB,1,1,1,1)
-        korg(2,4,color(0.5),color(1))
+        colorMode(RGB,1,1,1,1) ###
+        korg(2,4,color(0.5),color(1)) ###
         
     with ass.check("korg_3"): 
         if ass.errors(): return
-        colorMode(RGB,1,1,1,1)
-        korg(3,3,color(1,1,0),color(1,0,0))
+        colorMode(RGB,1,1,1,1) ###
+        korg(3,3,color(1,1,0),color(1,0,0)) ###
         
     with ass.check("korg_4"): 
         if ass.errors(): return
-        colorMode(RGB,1,1,1,1)
-        korg(4,2,color(1),color(0.5))
+        colorMode(RGB,1,1,1,1) ###
+        korg(4,2,color(1),color(0.5)) ###
         
     with ass.check("korg_5"): 
         if ass.errors(): return
-        colorMode(RGB,1,1,1,1)
-        korg(5,1,color(1,0,0),color(1,1,0))
+        colorMode(RGB,1,1,1,1) ###
+        korg(5,1,color(1,0,0),color(1,1,0)) ###
         
     with ass.check("textPythonA"):
         if ass.errors(): return
@@ -216,11 +216,11 @@ def lektionZ(ass):
     
     with ass.check("klocka"):
         if ass.errors(): return
-        klocka(10,9,30)
+        klocka(10,9,30) ###
         
     with ass.check("klockaB"):
         if ass.errors(): return
-        klocka(11,30,15)
+        klocka(11,30,15) ###
         
     def circles(x,y,r):
         circle(x,y,r)
@@ -230,8 +230,8 @@ def lektionZ(ass):
         
     with ass.check("recursiveCircles"):
         if ass.errors(): return
-        sc(1)
-        circles(100,100,100)
+        sc(1) ###
+        circles(100,100,100) ###
         
     def hypnoticA():
         bg(0.5, 0, 0)
@@ -244,7 +244,7 @@ def lektionZ(ass):
     
     with ass.check("hypnoticA"):
         if ass.errors(): return
-        hypnoticA()
+        hypnoticA() ###
 
     def hypnoticB(t):
         bg(0.5, 0, 0)
@@ -259,8 +259,8 @@ def lektionZ(ass):
     
     with ass.check("hypnoticB_1"):
         if ass.errors(): return
-        hypnoticB(1)
+        hypnoticB(1) ###
         
     with ass.check("hypnoticB_5"):
         if ass.errors(): return
-        hypnoticB(5)
+        hypnoticB(5) ###
