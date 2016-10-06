@@ -17,7 +17,7 @@ def lektionZ(ass):
                 fc((i+j)%2)
                 rect(20*i,20*j, 20,20)
         
-    def xxcolorCube(n,b):
+    def colorCube(n,b):
         bg(0)
         d = 200.0/n
         m = n-1.0

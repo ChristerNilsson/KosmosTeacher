@@ -1,7 +1,5 @@
 from Assert import fc,sc,sw,rd,circle,bg,push,col
 
-# for loops
-
 def lektion3_5(ass):
     
     with ass.check("for01"): 
