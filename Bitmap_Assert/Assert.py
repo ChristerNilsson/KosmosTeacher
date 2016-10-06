@@ -188,7 +188,7 @@ class Assert:
         if key == "@": # spara zero-versionen till katalogen zero
             for filename in glob.glob("L*.py"):
                 print filename
-                with open(filename, 'r') as f, open("C:\\KosmosTeacher\\Bitmap_Zero\\" + filename, 'w') as g:                    
+                with open(filename, 'r') as f, open("C:\\Kosmos\\Bitmap_Assert\\" + filename, 'w') as g:                    
                     count = 0
                     for line in f.readlines():
                         line2 = line.strip()
