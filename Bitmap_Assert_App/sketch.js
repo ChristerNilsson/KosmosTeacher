@@ -127,10 +127,10 @@ function sel3change(sel) {
 function setup() {
 
   msg = createInput('')
-  msg.position(3, 618)
+  msg.position(3, 625)
   msg.size(495)
 
-  c = createCanvas(210, 611)
+  c = createCanvas(5+201+5, 5+201+5+201+5+201+5)
   c.parent('canvas')
 
   sel1 = $('#sel1')
@@ -155,10 +155,11 @@ window.onload = function () {
   $(".CodeMirror").css('font-size',"16pt")
   
   myCodeMirror.on("change", run0)
-  myCodeMirror.setSize(500, 611)
+  myCodeMirror.setSize(500, 620)
   background(128)
   run(0, "")
   run(1, "")
+  run(2, "")
 }
 
 function run0() {
@@ -167,11 +168,16 @@ function run0() {
   data[chapter][exercise]["b"] = b
   run(0, b + call)
   run1()
+  run2()
 }
 
 function run1() {
   a = data[chapter][exercise]["a"] 
   run(1, a + call)
+}
+
+function run2() {
+  run(2, "bg(1,1,0)")
 }
 
 function reset() {
@@ -184,7 +190,7 @@ function reset() {
 function run(n, code) {
   resetMatrix()
   push()
-  translate(5, 5+n * 205)
+  translate(5, 5+n * 206)
   reset()
 
   try {
