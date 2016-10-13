@@ -3,75 +3,27 @@
 //var canvas
 //var code
 var myCodeMirror
-var msg
+var msg=""
 var sel1, sel2, sel3
 var chapter, exercise, call = ''
-
-// a : facit
-// b : student
-// c : call
-data = {
-  Colors: {
-    Background1: {
-      a: "bg(0)",
-      b: "bg(0,1,0)"
-    },
-    Background2: {
-      a: "bg(1)",
-      b: "bg(0,1,1)"
-    },
-    Background3: {
-      a: "bg(1,0,0)",
-      b: "bg(1,0,1)"
-    },
-    Background4: {
-      a: "bg(1,1,0)",
-      b: "bg(0.5)"
-    },
-  },
-  Points: {
-    Point1: {
-      a: "point(100,100)",
-      b: ""
-    },
-    Point2: {
-      a: "point(50,50)",
-      b: ""
-    },
-  },
-  Functions: {
-    ColorCube: {
-      a: "function colorCube(m,n) {rect(m,n,10,10)}",
-      b: "",
-      c: {
-        "colorCube(20,30)": 0,
-        "colorCube(130,140)": 1
-      }
-    },
-    Korg: {
-      a: "function korg(m,n) {ellipse(100,100,m,n)}",
-      b: "function korg(m,n) {\n  ellipse(100,100,m,n)\n}",
-      c: {
-        "korg(50,30)": 0,
-        "korg(30,50)": 1
-      }
-    },
-  },
-}
 
 function grid() {
   push()
   sc(1)
-  for (var i in range(10)) {
+  for (var i in range(11)) {
     line(0, 20 * i, 200, 20 * i)
     line(20 * i, 0, 20 * i, 200)
   }
   pop()
 }
 
+function co() {
+  return fixColor(arguments)
+}
+
 function fixColor(args) {
   var n = args.length
-  var r, g, b
+  var r, g, b, a=1
   if (n == 1) {
     r = args[0]
     g = r
@@ -80,8 +32,13 @@ function fixColor(args) {
     r = args[0]
     g = args[1]
     b = args[2]
+  } else if (n==4) {
+    r = args[0]
+    g = args[1]
+    b = args[2]
+    a = args[3]    
   }
-  return color(255 * r, 255 * g, 255 * b)
+  return color(255 * r, 255 * g, 255 * b, 255 * a)
 }
 
 function bg() {
@@ -107,14 +64,28 @@ function sc(r, g, b) {
   }
 }
 
-function range(n) {
-  var a = [],
-    b = 0
-  while (b < n) {
-    a.push(b)
-    b += 1
+function sw(n) {
+  strokeWeight(n)
+}
+
+function circle(x,y,r) {
+  ellipse(x,y,2*r,2*r)
+}
+
+function rd(vinkel) {
+  return rotate(radians(vinkel))
+}
+
+function range() {
+  n = arguments.length
+  if (n==1) {
+    return _.range(arguments[0])
+  } else if (n==2) {
+    return _.range(arguments[0],arguments[1])
+  } else if (n==3) {
+    //console.log(_.range(arguments[0],arguments[1],arguments[2]))
+    return _.range(arguments[0],arguments[1],arguments[2])
   }
-  return a
 }
 
 function fillSelect(sel, dict) {
@@ -154,13 +125,10 @@ function sel3change(sel) {
 }
 
 function setup() {
-  button2 = createButton('Init')
-  button2.position(507, 618)
-  button2.mousePressed(init)
 
   msg = createInput('')
-  msg.position(0, 618)
-  msg.size(500)
+  msg.position(3, 618)
+  msg.size(495)
 
   c = createCanvas(210, 611)
   c.parent('canvas')
@@ -172,9 +140,8 @@ function setup() {
   fillSelect(sel1, data)
 }
 
-function init() {
+window.onload = function () {
   var ta = document.getElementById("code")
-  console.log(ta)
 
   myCodeMirror = CodeMirror.fromTextArea(ta, {
     lineNumbers: true,
@@ -184,33 +151,44 @@ function init() {
     autoCloseBrackets: true,
     lineWiseCopyCut: true
   });
+  
+  $(".CodeMirror").css('font-size',"16pt")
+  
   myCodeMirror.on("change", run0)
   myCodeMirror.setSize(500, 611)
+  background(128)
   run(0, "")
   run(1, "")
 }
 
 function run0() {
+  background(128)
   b = myCodeMirror.getValue()
   data[chapter][exercise]["b"] = b
   run(0, b + call)
+  run1()
+}
+
+function run1() {
+  a = data[chapter][exercise]["a"] 
+  run(1, a + call)
 }
 
 function reset() {
-  bg(0.5, 0.5, 0.5)
-  fc(0, 0, 0)
+  bg(0)
+  fc(0)
+  sc(1)
   grid()
 }
 
 function run(n, code) {
   resetMatrix()
   push()
-  translate(0, n * 205)
+  translate(5, 5+n * 205)
   reset()
 
   try {
     msg.value('')
-    console.log(code)
     eval(code)
     pop()
   } catch (err) {
